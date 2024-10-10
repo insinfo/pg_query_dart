@@ -1,0 +1,28 @@
+name: pg_query
+version: 1.0.0
+description: libpg_query dart bindings
+homepage: https://github.com/insinfo/pg_query_dart
+repository: https://github.com/insinfo/pg_query_dart
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies: 
+  path: ^1.9.0
+  ffi: ^2.1.0  
+  protobuf: ^3.1.0
+
+dev_dependencies:
+  ffigen: ^11.0.0
+
+#C:\MyCppProjects\insert_to_copy\build\Release
+ffigen:
+  name: 'PgQueryBindings'
+  llvm-path:  
+    - 'C:\llvm'
+  output: 'lib/src/generated_bindings.dart'
+  headers:
+    entry-points:            
+      - './include/pg_query.h'        
+    include-directives:
+      - './include/**'
