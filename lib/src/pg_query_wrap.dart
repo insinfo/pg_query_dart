@@ -1,7 +1,13 @@
 import 'dart:ffi' as ffi;
 import 'package:ffi/ffi.dart';
+// Generated code. source: protobuf/pg_query.proto
+import 'package:pg_query/src/protobuf/pg_query.pb.dart' as protobuf;
+// Generated code from dart run ffigen .
 import 'generated_bindings.dart';
 
+//https://github.com/insinfo/pg_query_dart
+
+/// This dart lib uses the actual PostgreSQL server source to parse SQL queries and return the internal PostgreSQL parsetree.
 class PgQuery {
   final PgQueryBindings _bindings;
   final ffi.Allocator _allocator = calloc;
@@ -9,32 +15,12 @@ class PgQuery {
   PgQuery(ffi.DynamicLibrary dynamicLibrary)
       : _bindings = PgQueryBindings(dynamicLibrary);
 
-  /// Método para analisar uma consulta SQL com opções adicionais.
-  ParseResult parseWithOptions(String query,
-      {int parserOptions = ParserOptions.PARSE_DEFAULT}) {
-    final queryPointer =
-        query.toNativeUtf8(allocator: _allocator).cast<ffi.Char>();
-    final result = _bindings.pg_query_parse_opts(queryPointer, parserOptions);
-    _allocator.free(queryPointer);
-
-    try {
-      if (result.error != ffi.nullptr) {
-        final error = _extractError(result.error);
-        return ParseResult(error: error);
-      } else {
-        final parseTree = result.parse_tree.cast<Utf8>().toDartString();
-        final stderr = result.stderr_buffer != ffi.nullptr
-            ? result.stderr_buffer.cast<Utf8>().toDartString()
-            : null;
-        return ParseResult(parseTree: parseTree, stderr: stderr);
-      }
-    } finally {
-      _bindings.pg_query_free_parse_result(result);
-    }
+  factory PgQuery.fromPath(String path) {
+    return PgQuery(ffi.DynamicLibrary.open(path));
   }
 
   /// Método para analisar uma consulta SQL e retornar a árvore de análise em formato Protobuf.
-  ProtobufParseResult parseProtobuf(String query) {
+  protobuf.ParseResult parseProtobuf(String query) {
     final queryPointer =
         query.toNativeUtf8(allocator: _allocator).cast<ffi.Char>();
     final result = _bindings.pg_query_parse_protobuf(queryPointer);
@@ -42,12 +28,11 @@ class PgQuery {
 
     try {
       if (result.error != ffi.nullptr) {
-        final error = _extractError(result.error);
-        return ProtobufParseResult(error: error);
+        throw _extractError(result.error);
       } else {
         final parseTreeData = result.parse_tree.data.cast<ffi.Uint8>();
         final parseTreeBytes = parseTreeData.asTypedList(result.parse_tree.len);
-        return ProtobufParseResult(parseTreeBytes: parseTreeBytes);
+        return protobuf.ParseResult.fromBuffer(parseTreeBytes);
       }
     } finally {
       _bindings.pg_query_free_protobuf_parse_result(result);
@@ -55,7 +40,7 @@ class PgQuery {
   }
 
   /// Método para analisar uma consulta SQL e retornar a árvore de análise em formato Protobuf com opções.
-  ProtobufParseResult parseProtobufWithOptions(String query,
+  protobuf.ParseResult parseProtobufWithOptions(String query,
       {int parserOptions = ParserOptions.PARSE_DEFAULT}) {
     final queryPointer =
         query.toNativeUtf8(allocator: _allocator).cast<ffi.Char>();
@@ -65,12 +50,11 @@ class PgQuery {
 
     try {
       if (result.error != ffi.nullptr) {
-        final error = _extractError(result.error);
-        return ProtobufParseResult(error: error);
+        throw _extractError(result.error);
       } else {
         final parseTreeData = result.parse_tree.data.cast<ffi.Uint8>();
         final parseTreeBytes = parseTreeData.asTypedList(result.parse_tree.len);
-        return ProtobufParseResult(parseTreeBytes: parseTreeBytes);
+        return protobuf.ParseResult.fromBuffer(parseTreeBytes);
       }
     } finally {
       _bindings.pg_query_free_protobuf_parse_result(result);
@@ -78,7 +62,7 @@ class PgQuery {
   }
 
   /// Método para analisar código PL/pgSQL.
-  PlpgsqlParseResult parsePlpgsql(String query) {
+  PlpgsqlParseResultRaw parsePlpgsql(String query) {
     final queryPointer =
         query.toNativeUtf8(allocator: _allocator).cast<ffi.Char>();
     final result = _bindings.pg_query_parse_plpgsql(queryPointer);
@@ -87,10 +71,10 @@ class PgQuery {
     try {
       if (result.error != ffi.nullptr) {
         final error = _extractError(result.error);
-        return PlpgsqlParseResult(error: error);
+        return PlpgsqlParseResultRaw(error: error);
       } else {
         final funcsJson = result.plpgsql_funcs.cast<Utf8>().toDartString();
-        return PlpgsqlParseResult(functionsJson: funcsJson);
+        return PlpgsqlParseResultRaw(functionsJson: funcsJson);
       }
     } finally {
       _bindings.pg_query_free_plpgsql_parse_result(result);
@@ -166,7 +150,8 @@ class PgQuery {
     final dataList = dataPointer.asTypedList(parseTreeBytes.length);
     dataList.setAll(0, parseTreeBytes);
 
-    final protobuf = _allocator.allocate<PgQueryProtobuf>(ffi.sizeOf<PgQueryProtobuf>());
+    final protobuf =
+        _allocator.allocate<PgQueryProtobuf>(ffi.sizeOf<PgQueryProtobuf>());
     protobuf.ref.len = parseTreeBytes.length;
     protobuf.ref.data = dataPointer.cast<ffi.Char>();
 
@@ -208,10 +193,32 @@ class PgQuery {
     }
   }
 
-  // Métodos auxiliares existentes (parse, normalize, fingerprint, scan, split)
+  /// Método para analisar uma consulta SQL com opções adicionais.
+  ParseResultRaw parseWithOptions(String query,
+      {int parserOptions = ParserOptions.PARSE_DEFAULT}) {
+    final queryPointer =
+        query.toNativeUtf8(allocator: _allocator).cast<ffi.Char>();
+    final result = _bindings.pg_query_parse_opts(queryPointer, parserOptions);
+    _allocator.free(queryPointer);
+
+    try {
+      if (result.error != ffi.nullptr) {
+        final error = _extractError(result.error);
+        return ParseResultRaw(error: error);
+      } else {
+        final parseTree = result.parse_tree.cast<Utf8>().toDartString();
+        final stderr = result.stderr_buffer != ffi.nullptr
+            ? result.stderr_buffer.cast<Utf8>().toDartString()
+            : null;
+        return ParseResultRaw(parseTree: parseTree, stderr: stderr);
+      }
+    } finally {
+      _bindings.pg_query_free_parse_result(result);
+    }
+  }
 
   /// Método para analisar uma consulta SQL e retornar a árvore de análise sintática.
-  ParseResult parse(String query) {
+  ParseResultRaw parse(String query) {
     final queryPointer =
         query.toNativeUtf8(allocator: _allocator).cast<ffi.Char>();
     final result = _bindings.pg_query_parse(queryPointer);
@@ -220,13 +227,13 @@ class PgQuery {
     try {
       if (result.error != ffi.nullptr) {
         final error = _extractError(result.error);
-        return ParseResult(error: error);
+        return ParseResultRaw(error: error);
       } else {
         final parseTree = result.parse_tree.cast<Utf8>().toDartString();
         final stderr = result.stderr_buffer != ffi.nullptr
             ? result.stderr_buffer.cast<Utf8>().toDartString()
             : null;
-        return ParseResult(parseTree: parseTree, stderr: stderr);
+        return ParseResultRaw(parseTree: parseTree, stderr: stderr);
       }
     } finally {
       _bindings.pg_query_free_parse_result(result);
@@ -276,7 +283,7 @@ class PgQuery {
   }
 
   /// Método para escanear uma consulta SQL e retornar os tokens.
-  ScanResult scan(String query) {
+  ScanResultRaw scan(String query) {
     final queryPointer =
         query.toNativeUtf8(allocator: _allocator).cast<ffi.Char>();
     final result = _bindings.pg_query_scan(queryPointer);
@@ -284,12 +291,13 @@ class PgQuery {
 
     try {
       if (result.error != ffi.nullptr) {
-        final error = _extractError(result.error);
-        return ScanResult(error: error);
+        //throw _extractError(result.error);
+        return ScanResultRaw(error: _extractError(result.error));
       } else {
         final tokensData = result.pbuf.data.cast<ffi.Uint8>();
         final tokensBytes = tokensData.asTypedList(result.pbuf.len);
-        return ScanResult(tokensBytes: tokensBytes);
+        return ScanResultRaw(
+            result: protobuf.ScanResult.fromBuffer(tokensBytes));
       }
     } finally {
       _bindings.pg_query_free_scan_result(result);
@@ -354,28 +362,33 @@ class PgQuery {
     }
     return statements;
   }
+
+  ///  Optional, cleans up the top-level memory context (automatically done for threads that exit)
+  void exit() {
+    _bindings.pg_query_exit();
+  }
 }
 
-class ParseResult {
+class ParseResultRaw {
   final String? parseTree;
   final String? stderr;
   final PgQueryException? error;
 
-  ParseResult({this.parseTree, this.stderr, this.error});
+  ParseResultRaw({this.parseTree, this.stderr, this.error});
 }
 
-class ProtobufParseResult {
+class ProtobufParseResultRaw {
   final List<int>? parseTreeBytes;
   final PgQueryException? error;
 
-  ProtobufParseResult({this.parseTreeBytes, this.error});
+  ProtobufParseResultRaw({this.parseTreeBytes, this.error});
 }
 
-class PlpgsqlParseResult {
+class PlpgsqlParseResultRaw {
   final String? functionsJson;
   final PgQueryException? error;
 
-  PlpgsqlParseResult({this.functionsJson, this.error});
+  PlpgsqlParseResultRaw({this.functionsJson, this.error});
 }
 
 class NormalizeResult {
@@ -392,11 +405,13 @@ class FingerprintResult {
   FingerprintResult({this.fingerprint, this.error});
 }
 
-class ScanResult {
+class ScanResultRaw {
   final List<int>? tokensBytes;
   final PgQueryException? error;
 
-  ScanResult({this.tokensBytes, this.error});
+  protobuf.ScanResult? result;
+
+  ScanResultRaw({this.tokensBytes, this.error, this.result});
 }
 
 class SplitResult {

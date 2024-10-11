@@ -635,11 +635,11 @@ class Node extends $pb.GeneratedMessage {
     CreateSubscriptionStmt? createSubscriptionStmt,
     AlterSubscriptionStmt? alterSubscriptionStmt,
     DropSubscriptionStmt? dropSubscriptionStmt,
-    Integer? integer,
-    Float? float,
-    Boolean? boolean,
-    String? string,
-    BitString? bitString,
+    PgInteger? integer,
+    PgFloat? float,
+    PgBoolean? boolean,
+    PgString? string,
+    PgBitString? bitString,
     List_? list,
     IntList? intList,
     OidList? oidList,
@@ -1908,11 +1908,11 @@ class Node extends $pb.GeneratedMessage {
     ..aOM<CreateSubscriptionStmt>(241, _omitFieldNames ? '' : 'CreateSubscriptionStmt', protoName: 'create_subscription_stmt', subBuilder: CreateSubscriptionStmt.create)
     ..aOM<AlterSubscriptionStmt>(242, _omitFieldNames ? '' : 'AlterSubscriptionStmt', protoName: 'alter_subscription_stmt', subBuilder: AlterSubscriptionStmt.create)
     ..aOM<DropSubscriptionStmt>(243, _omitFieldNames ? '' : 'DropSubscriptionStmt', protoName: 'drop_subscription_stmt', subBuilder: DropSubscriptionStmt.create)
-    ..aOM<Integer>(244, _omitFieldNames ? '' : 'Integer', protoName: 'integer', subBuilder: Integer.create)
-    ..aOM<Float>(245, _omitFieldNames ? '' : 'Float', protoName: 'float', subBuilder: Float.create)
-    ..aOM<Boolean>(246, _omitFieldNames ? '' : 'Boolean', protoName: 'boolean', subBuilder: Boolean.create)
-    ..aOM<String>(247, _omitFieldNames ? '' : 'String', protoName: 'string', subBuilder: String.create)
-    ..aOM<BitString>(248, _omitFieldNames ? '' : 'BitString', protoName: 'bit_string', subBuilder: BitString.create)
+    ..aOM<PgInteger>(244, _omitFieldNames ? '' : 'Integer', protoName: 'integer', subBuilder: PgInteger.create)
+    ..aOM<PgFloat>(245, _omitFieldNames ? '' : 'Float', protoName: 'float', subBuilder: PgFloat.create)
+    ..aOM<PgBoolean>(246, _omitFieldNames ? '' : 'Boolean', protoName: 'boolean', subBuilder: PgBoolean.create)
+    ..aOM<PgString>(247, _omitFieldNames ? '' : 'String', protoName: 'string', subBuilder: PgString.create)
+    ..aOM<PgBitString>(248, _omitFieldNames ? '' : 'BitString', protoName: 'bit_string', subBuilder: PgBitString.create)
     ..aOM<List_>(249, _omitFieldNames ? '' : 'List', protoName: 'list', subBuilder: List_.create)
     ..aOM<IntList>(250, _omitFieldNames ? '' : 'IntList', protoName: 'int_list', subBuilder: IntList.create)
     ..aOM<OidList>(251, _omitFieldNames ? '' : 'OidList', protoName: 'oid_list', subBuilder: OidList.create)
@@ -4618,59 +4618,59 @@ class Node extends $pb.GeneratedMessage {
   DropSubscriptionStmt ensureDropSubscriptionStmt() => $_ensure(242);
 
   @$pb.TagNumber(244)
-  Integer get integer => $_getN(243);
+  PgInteger get integer => $_getN(243);
   @$pb.TagNumber(244)
-  set integer(Integer v) { setField(244, v); }
+  set integer(PgInteger v) { setField(244, v); }
   @$pb.TagNumber(244)
   $core.bool hasInteger() => $_has(243);
   @$pb.TagNumber(244)
   void clearInteger() => clearField(244);
   @$pb.TagNumber(244)
-  Integer ensureInteger() => $_ensure(243);
+  PgInteger ensureInteger() => $_ensure(243);
 
   @$pb.TagNumber(245)
-  Float get float => $_getN(244);
+  PgFloat get float => $_getN(244);
   @$pb.TagNumber(245)
-  set float(Float v) { setField(245, v); }
+  set float(PgFloat v) { setField(245, v); }
   @$pb.TagNumber(245)
   $core.bool hasFloat() => $_has(244);
   @$pb.TagNumber(245)
   void clearFloat() => clearField(245);
   @$pb.TagNumber(245)
-  Float ensureFloat() => $_ensure(244);
+  PgFloat ensureFloat() => $_ensure(244);
 
   @$pb.TagNumber(246)
-  Boolean get boolean => $_getN(245);
+  PgBoolean get boolean => $_getN(245);
   @$pb.TagNumber(246)
-  set boolean(Boolean v) { setField(246, v); }
+  set boolean(PgBoolean v) { setField(246, v); }
   @$pb.TagNumber(246)
   $core.bool hasBoolean() => $_has(245);
   @$pb.TagNumber(246)
   void clearBoolean() => clearField(246);
   @$pb.TagNumber(246)
-  Boolean ensureBoolean() => $_ensure(245);
+  PgBoolean ensureBoolean() => $_ensure(245);
 
   @$pb.TagNumber(247)
-  String get string => $_getN(246);
+  PgString get string => $_getN(246);
   @$pb.TagNumber(247)
-  set string(String v) { setField(247, v); }
+  set string(PgString v) { setField(247, v); }
   @$pb.TagNumber(247)
   $core.bool hasString() => $_has(246);
   @$pb.TagNumber(247)
   void clearString() => clearField(247);
   @$pb.TagNumber(247)
-  String ensureString() => $_ensure(246);
+  PgString ensureString() => $_ensure(246);
 
   @$pb.TagNumber(248)
-  BitString get bitString => $_getN(247);
+  PgBitString get bitString => $_getN(247);
   @$pb.TagNumber(248)
-  set bitString(BitString v) { setField(248, v); }
+  set bitString(PgBitString v) { setField(248, v); }
   @$pb.TagNumber(248)
   $core.bool hasBitString() => $_has(247);
   @$pb.TagNumber(248)
   void clearBitString() => clearField(248);
   @$pb.TagNumber(248)
-  BitString ensureBitString() => $_ensure(247);
+  PgBitString ensureBitString() => $_ensure(247);
 
   @$pb.TagNumber(249)
   List_ get list => $_getN(248);
@@ -4717,8 +4717,8 @@ class Node extends $pb.GeneratedMessage {
   A_Const ensureAConst() => $_ensure(251);
 }
 
-class Integer extends $pb.GeneratedMessage {
-  factory Integer({
+class PgInteger extends $pb.GeneratedMessage {
+  factory PgInteger({
     $core.int? ival,
   }) {
     final $result = create();
@@ -4727,9 +4727,9 @@ class Integer extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  Integer._() : super();
-  factory Integer.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Integer.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  PgInteger._() : super();
+  factory PgInteger.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PgInteger.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Integer', package: const $pb.PackageName(_omitMessageNames ? '' : 'pg_query'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'ival', $pb.PbFieldType.O3)
@@ -4740,22 +4740,22 @@ class Integer extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  Integer clone() => Integer()..mergeFromMessage(this);
+  PgInteger clone() => PgInteger()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  Integer copyWith(void Function(Integer) updates) => super.copyWith((message) => updates(message as Integer)) as Integer;
+  PgInteger copyWith(void Function(PgInteger) updates) => super.copyWith((message) => updates(message as PgInteger)) as PgInteger;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static Integer create() => Integer._();
-  Integer createEmptyInstance() => create();
-  static $pb.PbList<Integer> createRepeated() => $pb.PbList<Integer>();
+  static PgInteger create() => PgInteger._();
+  PgInteger createEmptyInstance() => create();
+  static $pb.PbList<PgInteger> createRepeated() => $pb.PbList<PgInteger>();
   @$core.pragma('dart2js:noInline')
-  static Integer getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Integer>(create);
-  static Integer? _defaultInstance;
+  static PgInteger getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PgInteger>(create);
+  static PgInteger? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.int get ival => $_getIZ(0);
@@ -4767,8 +4767,8 @@ class Integer extends $pb.GeneratedMessage {
   void clearIval() => clearField(1);
 }
 
-class Float extends $pb.GeneratedMessage {
-  factory Float({
+class PgFloat extends $pb.GeneratedMessage {
+  factory PgFloat({
     $core.String? fval,
   }) {
     final $result = create();
@@ -4777,9 +4777,9 @@ class Float extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  Float._() : super();
-  factory Float.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Float.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  PgFloat._() : super();
+  factory PgFloat.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PgFloat.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Float', package: const $pb.PackageName(_omitMessageNames ? '' : 'pg_query'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'fval')
@@ -4790,22 +4790,22 @@ class Float extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  Float clone() => Float()..mergeFromMessage(this);
+  PgFloat clone() => PgFloat()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  Float copyWith(void Function(Float) updates) => super.copyWith((message) => updates(message as Float)) as Float;
+  PgFloat copyWith(void Function(PgFloat) updates) => super.copyWith((message) => updates(message as PgFloat)) as PgFloat;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static Float create() => Float._();
-  Float createEmptyInstance() => create();
-  static $pb.PbList<Float> createRepeated() => $pb.PbList<Float>();
+  static PgFloat create() => PgFloat._();
+  PgFloat createEmptyInstance() => create();
+  static $pb.PbList<PgFloat> createRepeated() => $pb.PbList<PgFloat>();
   @$core.pragma('dart2js:noInline')
-  static Float getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Float>(create);
-  static Float? _defaultInstance;
+  static PgFloat getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PgFloat>(create);
+  static PgFloat? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get fval => $_getSZ(0);
@@ -4817,8 +4817,8 @@ class Float extends $pb.GeneratedMessage {
   void clearFval() => clearField(1);
 }
 
-class Boolean extends $pb.GeneratedMessage {
-  factory Boolean({
+class PgBoolean extends $pb.GeneratedMessage {
+  factory PgBoolean({
     $core.bool? boolval,
   }) {
     final $result = create();
@@ -4827,9 +4827,9 @@ class Boolean extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  Boolean._() : super();
-  factory Boolean.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Boolean.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  PgBoolean._() : super();
+  factory PgBoolean.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PgBoolean.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Boolean', package: const $pb.PackageName(_omitMessageNames ? '' : 'pg_query'), createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'boolval')
@@ -4840,22 +4840,22 @@ class Boolean extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  Boolean clone() => Boolean()..mergeFromMessage(this);
+  PgBoolean clone() => PgBoolean()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  Boolean copyWith(void Function(Boolean) updates) => super.copyWith((message) => updates(message as Boolean)) as Boolean;
+  PgBoolean copyWith(void Function(PgBoolean) updates) => super.copyWith((message) => updates(message as PgBoolean)) as PgBoolean;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static Boolean create() => Boolean._();
-  Boolean createEmptyInstance() => create();
-  static $pb.PbList<Boolean> createRepeated() => $pb.PbList<Boolean>();
+  static PgBoolean create() => PgBoolean._();
+  PgBoolean createEmptyInstance() => create();
+  static $pb.PbList<PgBoolean> createRepeated() => $pb.PbList<PgBoolean>();
   @$core.pragma('dart2js:noInline')
-  static Boolean getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Boolean>(create);
-  static Boolean? _defaultInstance;
+  static PgBoolean getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PgBoolean>(create);
+  static PgBoolean? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.bool get boolval => $_getBF(0);
@@ -4867,8 +4867,8 @@ class Boolean extends $pb.GeneratedMessage {
   void clearBoolval() => clearField(1);
 }
 
-class String extends $pb.GeneratedMessage {
-  factory String({
+class PgString extends $pb.GeneratedMessage {
+  factory PgString({
     $core.String? sval,
   }) {
     final $result = create();
@@ -4877,9 +4877,9 @@ class String extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  String._() : super();
-  factory String.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory String.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  PgString._() : super();
+  factory PgString.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PgString.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'String', package: const $pb.PackageName(_omitMessageNames ? '' : 'pg_query'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'sval')
@@ -4890,22 +4890,22 @@ class String extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  String clone() => String()..mergeFromMessage(this);
+  PgString clone() => PgString()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  String copyWith(void Function(String) updates) => super.copyWith((message) => updates(message as String)) as String;
+  PgString copyWith(void Function(PgString) updates) => super.copyWith((message) => updates(message as PgString)) as PgString;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static String create() => String._();
-  String createEmptyInstance() => create();
-  static $pb.PbList<String> createRepeated() => $pb.PbList<String>();
+  static PgString create() => PgString._();
+  PgString createEmptyInstance() => create();
+  static $pb.PbList<PgString> createRepeated() => $pb.PbList<PgString>();
   @$core.pragma('dart2js:noInline')
-  static String getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<String>(create);
-  static String? _defaultInstance;
+  static PgString getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PgString>(create);
+  static PgString? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get sval => $_getSZ(0);
@@ -4917,8 +4917,8 @@ class String extends $pb.GeneratedMessage {
   void clearSval() => clearField(1);
 }
 
-class BitString extends $pb.GeneratedMessage {
-  factory BitString({
+class PgBitString extends $pb.GeneratedMessage {
+  factory PgBitString({
     $core.String? bsval,
   }) {
     final $result = create();
@@ -4927,9 +4927,9 @@ class BitString extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  BitString._() : super();
-  factory BitString.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory BitString.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  PgBitString._() : super();
+  factory PgBitString.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PgBitString.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BitString', package: const $pb.PackageName(_omitMessageNames ? '' : 'pg_query'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'bsval')
@@ -4940,22 +4940,22 @@ class BitString extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  BitString clone() => BitString()..mergeFromMessage(this);
+  PgBitString clone() => PgBitString()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  BitString copyWith(void Function(BitString) updates) => super.copyWith((message) => updates(message as BitString)) as BitString;
+  PgBitString copyWith(void Function(PgBitString) updates) => super.copyWith((message) => updates(message as PgBitString)) as PgBitString;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static BitString create() => BitString._();
-  BitString createEmptyInstance() => create();
-  static $pb.PbList<BitString> createRepeated() => $pb.PbList<BitString>();
+  static PgBitString create() => PgBitString._();
+  PgBitString createEmptyInstance() => create();
+  static $pb.PbList<PgBitString> createRepeated() => $pb.PbList<PgBitString>();
   @$core.pragma('dart2js:noInline')
-  static BitString getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BitString>(create);
-  static BitString? _defaultInstance;
+  static PgBitString getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PgBitString>(create);
+  static PgBitString? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get bsval => $_getSZ(0);
@@ -5110,11 +5110,11 @@ enum A_Const_Val {
 
 class A_Const extends $pb.GeneratedMessage {
   factory A_Const({
-    Integer? ival,
-    Float? fval,
-    Boolean? boolval,
-    String? sval,
-    BitString? bsval,
+    PgInteger? ival,
+    PgFloat? fval,
+    PgBoolean? boolval,
+    PgString? sval,
+    PgBitString? bsval,
     $core.bool? isnull,
     $core.int? location,
   }) {
@@ -5156,11 +5156,11 @@ class A_Const extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'A_Const', package: const $pb.PackageName(_omitMessageNames ? '' : 'pg_query'), createEmptyInstance: create)
     ..oo(0, [1, 2, 3, 4, 5])
-    ..aOM<Integer>(1, _omitFieldNames ? '' : 'ival', subBuilder: Integer.create)
-    ..aOM<Float>(2, _omitFieldNames ? '' : 'fval', subBuilder: Float.create)
-    ..aOM<Boolean>(3, _omitFieldNames ? '' : 'boolval', subBuilder: Boolean.create)
-    ..aOM<String>(4, _omitFieldNames ? '' : 'sval', subBuilder: String.create)
-    ..aOM<BitString>(5, _omitFieldNames ? '' : 'bsval', subBuilder: BitString.create)
+    ..aOM<PgInteger>(1, _omitFieldNames ? '' : 'ival', subBuilder: PgInteger.create)
+    ..aOM<PgFloat>(2, _omitFieldNames ? '' : 'fval', subBuilder: PgFloat.create)
+    ..aOM<PgBoolean>(3, _omitFieldNames ? '' : 'boolval', subBuilder: PgBoolean.create)
+    ..aOM<PgString>(4, _omitFieldNames ? '' : 'sval', subBuilder: PgString.create)
+    ..aOM<PgBitString>(5, _omitFieldNames ? '' : 'bsval', subBuilder: PgBitString.create)
     ..aOB(10, _omitFieldNames ? '' : 'isnull')
     ..a<$core.int>(11, _omitFieldNames ? '' : 'location', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
@@ -5191,59 +5191,59 @@ class A_Const extends $pb.GeneratedMessage {
   void clearVal() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  Integer get ival => $_getN(0);
+  PgInteger get ival => $_getN(0);
   @$pb.TagNumber(1)
-  set ival(Integer v) { setField(1, v); }
+  set ival(PgInteger v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasIval() => $_has(0);
   @$pb.TagNumber(1)
   void clearIval() => clearField(1);
   @$pb.TagNumber(1)
-  Integer ensureIval() => $_ensure(0);
+  PgInteger ensureIval() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  Float get fval => $_getN(1);
+  PgFloat get fval => $_getN(1);
   @$pb.TagNumber(2)
-  set fval(Float v) { setField(2, v); }
+  set fval(PgFloat v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasFval() => $_has(1);
   @$pb.TagNumber(2)
   void clearFval() => clearField(2);
   @$pb.TagNumber(2)
-  Float ensureFval() => $_ensure(1);
+  PgFloat ensureFval() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  Boolean get boolval => $_getN(2);
+  PgBoolean get boolval => $_getN(2);
   @$pb.TagNumber(3)
-  set boolval(Boolean v) { setField(3, v); }
+  set boolval(PgBoolean v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasBoolval() => $_has(2);
   @$pb.TagNumber(3)
   void clearBoolval() => clearField(3);
   @$pb.TagNumber(3)
-  Boolean ensureBoolval() => $_ensure(2);
+  PgBoolean ensureBoolval() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  String get sval => $_getN(3);
+  PgString get sval => $_getN(3);
   @$pb.TagNumber(4)
-  set sval(String v) { setField(4, v); }
+  set sval(PgString v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasSval() => $_has(3);
   @$pb.TagNumber(4)
   void clearSval() => clearField(4);
   @$pb.TagNumber(4)
-  String ensureSval() => $_ensure(3);
+  PgString ensureSval() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  BitString get bsval => $_getN(4);
+  PgBitString get bsval => $_getN(4);
   @$pb.TagNumber(5)
-  set bsval(BitString v) { setField(5, v); }
+  set bsval(PgBitString v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasBsval() => $_has(4);
   @$pb.TagNumber(5)
   void clearBsval() => clearField(5);
   @$pb.TagNumber(5)
-  BitString ensureBsval() => $_ensure(4);
+  PgBitString ensureBsval() => $_ensure(4);
 
   @$pb.TagNumber(10)
   $core.bool get isnull => $_getBF(5);
@@ -26911,7 +26911,7 @@ class AlterObjectDependsStmt extends $pb.GeneratedMessage {
     ObjectType? objectType,
     RangeVar? relation,
     Node? object,
-    String? extname,
+    PgString? extname,
     $core.bool? remove,
   }) {
     final $result = create();
@@ -26940,7 +26940,7 @@ class AlterObjectDependsStmt extends $pb.GeneratedMessage {
     ..e<ObjectType>(1, _omitFieldNames ? '' : 'objectType', $pb.PbFieldType.OE, defaultOrMaker: ObjectType.OBJECT_TYPE_UNDEFINED, valueOf: ObjectType.valueOf, enumValues: ObjectType.values)
     ..aOM<RangeVar>(2, _omitFieldNames ? '' : 'relation', subBuilder: RangeVar.create)
     ..aOM<Node>(3, _omitFieldNames ? '' : 'object', subBuilder: Node.create)
-    ..aOM<String>(4, _omitFieldNames ? '' : 'extname', subBuilder: String.create)
+    ..aOM<PgString>(4, _omitFieldNames ? '' : 'extname', subBuilder: PgString.create)
     ..aOB(5, _omitFieldNames ? '' : 'remove')
     ..hasRequiredFields = false
   ;
@@ -26998,15 +26998,15 @@ class AlterObjectDependsStmt extends $pb.GeneratedMessage {
   Node ensureObject() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  String get extname => $_getN(3);
+  PgString get extname => $_getN(3);
   @$pb.TagNumber(4)
-  set extname(String v) { setField(4, v); }
+  set extname(PgString v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasExtname() => $_has(3);
   @$pb.TagNumber(4)
   void clearExtname() => clearField(4);
   @$pb.TagNumber(4)
-  String ensureExtname() => $_ensure(3);
+  PgString ensureExtname() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.bool get remove => $_getBF(4);
